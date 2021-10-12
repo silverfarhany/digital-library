@@ -1,7 +1,7 @@
 <?php
 session_start();
 $title = "Edit E-book";
-if(isset($_SESSION['id'])&& $_SESSION['klasif']==3){
+if(isset($_SESSION['id'])&& ($_SESSION['klasif']==3 || $_SESSION['klasif']==1)){
     require_once('konekdb.php');
         $id_ebook = $_GET['id'];
         $detailebook = "SELECT * FROM data_ebook WHERE id_ebook ='$id_ebook'";

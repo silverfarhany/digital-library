@@ -38,7 +38,7 @@
                                                     <label for="guru">Buku Paket</label>
                                                     <br></br>
                                                     <input type="radio" id="siswa" name="tipebuku" required="" value=2>
-                                                    <label for="siswa">Buku Fiksi</label>
+                                                    <label for="siswa">Buku non-Paket</label>
                                                     <br></br>
                                                     <input type="radio" id="admin"  name="tipebuku" required="" value=3>
                                                     <label for="admin">Ilmu Pengetahuan</label>

@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Home Admin</title>
+        <title>Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -54,9 +54,18 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-server"></i></div>
                                 Data Peminjaman                            
                             </a>
+                            <a class="nav-link <?php echo strpos($url, 'data-user.php') == true ? "active" : "" ?>" href="data-user.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-child"></i></div>
+                                Data User                           
+                            </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">                               
                             </div>     
-                            <div class="sb-sidenav-menu-heading">Fitur</div>                                     
+                            <div class="sb-sidenav-menu-heading">Fitur</div>
+                            <?php if(isset($_SESSION['id'])&& $_SESSION['klasif']==3)?> 
+                            <a class="nav-link collapsed <?php echo strpos($url, 'tambah-admin.php') == true ? "active" : "" ?>" href="tambah-admin.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>
+                                Tambah Admin                               
+                            </a>                                          
                             <a class="nav-link collapsed <?php echo strpos($url, 'upload-ebook.php') == true ? "active" : "" ?>" href="upload-ebook.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-upload"></i></div>
                                 Upload E-book                                

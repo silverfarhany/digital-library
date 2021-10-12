@@ -1,7 +1,7 @@
 <?php
 session_start();
 $title = "Upload E-book";
-if(isset($_SESSION['id'])&& $_SESSION['klasif']==3){    
+if(isset($_SESSION['id'])&& ($_SESSION['klasif']==3 || $_SESSION['klasif']==1)){    
     require_once('konekdb.php');
         if (isset($_POST["upload"])){
             $lisensi = $_POST["lisensi"];
@@ -32,6 +32,13 @@ if(isset($_SESSION['id'])&& $_SESSION['klasif']==3){
                 echo "<script>alert('File harus berbentuk PDF!')</script>";
             }
         }
+        
+        $cek = mysqli_query($conn, "SELECT file FROM data_ebook WHERE file ='$file'");
+        if(mysqli_fetch_assoc($cek)== TRUE){
+            echo "<script>
+                        alert('E-book sudah ada')
+                        </script>";
+                return FALSE;}
 
 require_once('view/upload-ebook.php');}
 else{

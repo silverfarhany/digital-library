@@ -1,44 +1,43 @@
-<?php require_once('header.php')?> 
+<?php require_once('header-admin.php')?>
             <div id="layoutSidenav_content">
                  <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Riwayat Pinjaman</h1>  
-                        <br></br>              
+                        <h1 class="mt-4">Data User</h1>                
                         <div class="card mb-4">                            
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Data E-book yang pernah anda pinjam
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Judul</th>
-                                            <th>Kategori</th>
-                                            <th>Mulai Pinjam</th>
-                                            <th>Selesai Pinjam</th> 
-                                            <th>Aksi</th>                                          
+                                            <th>Id User</th>                                           
+                                            <th>Nama</th>
+                                            <th>Username</th> 
+                                            <th>Email</th>  
+                                            <th>NIS / NIP</th> 
+                                            <th>Kategori User</th> 
+                                            <th> </th>                                                                                    
                                         </tr>
-                                    </thead>
+                                    </thead>                                   
                                     <tbody>
                                     <tr>
-                                        <?php while ($ebook = $result->fetch_assoc()): ?>                                           
-                                            <td> <?= $ebook["judul"]  ?> </td>                                           
-                                            <td> <?= $ebook["kategori_buku"]==1?"Buku Paket":($ebook["kategori_buku"]==2?"Buku Fiksi":"Karya Ilmiah")  ?> </td>
-                                            <td> <?= $ebook["start_pinjam"]  ?> </td>  
-                                            <td> <?= $ebook["end_pinjam"]  ?> </td> 
-                                            <td>
-                                            <form method="post">
-                                                <input type="hidden" name="id_ebook" value="<?= $ebook["id_ebook"] ?>">
-                                                 <button class="btn btn-primary btn-block" type="submit" name="pinjamlagi">Pinjam Lagi</button> 
-                                            </form>
-                                        </td>
+                                        <?php while ($user = $result->fetch_assoc()): ?>
+                                            <td> <?= $user["id_user"] ?></td>
+                                            <td> <?= $user["nama"] ?> </td>
+                                            <td> <?= $user["username"]  ?> </td>                                    
+                                            <td> <?= $user["email"]  ?> </td> 
+                                            <td> <?= $user["nis_nip"]  ?> </td> 
+                                            <td> <?= $user["who"]==1?"Admin":($user["who"]==2?"User":"Super Admin") ?></td>                                                                
+                                            <td> 
+                                            <a class="btn btn-danger" name="block" href ="block-user.php?id=<?php echo $user['id_user']?>"><i class="fa fa-times-circle"></i></button>
+                                            </td>
                                         </tr>
-                                        <?php endwhile;?>                  
-                                   
+                                        <?php endwhile;?>                                       
                                     </tbody>                                    
-                                </table>
+                                </table>    
+                                <a href="cetak_dataUser.php" class="btn btn-success" style="float:right"> <i class="fa fa-print"></i> </a>                            
                             </div>
                         </div>
                     </div>

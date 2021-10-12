@@ -25,8 +25,13 @@ if(isset($_SESSION['id'])){
                             $conn->query($editpassword);                            
                 }
             }
-            if($result){                
-                header('Location:index-admin.php');
+            if($result){      
+                if(isset($_SESSION['id'])&& ($_SESSION['klasif']==3 || $_SESSION['klasif']==1)){
+                    header('Location:index-admin.php');
+                }         
+                else{
+                    header('Location:index.php');
+                }
             }
         }
     }
