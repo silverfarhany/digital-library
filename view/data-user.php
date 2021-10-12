@@ -9,8 +9,8 @@
                                 <i class="fas fa-table me-1"></i>
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
+                                <table id="datatablesSimple" >
+                                    <thead class='bg-success'>
                                         <tr>
                                             <th>Id User</th>                                           
                                             <th>Nama</th>

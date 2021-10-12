@@ -9,8 +9,9 @@
         <title>Login - Digital Library</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="assets/img/o.png" type="image/ico" />
     </head>
-    <body class="bg-primary">
+    <body style="background-image: url(assets/img/o.png);">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -18,7 +19,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">SMA Mekar Arum</h3></div>
                                     <div class="card-header"><h5 class="text-center font-weight-light my-4">Digital Library</h5></div>
                                     <div class="card-body">
                                         <form action="" method="post">

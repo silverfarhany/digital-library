@@ -9,7 +9,7 @@
                         <br></br>                        
                         <h2>Daftar E-book yang tersedia </h2>
                             <table id="datatablesSimple" class="table-stripped">
-                                    <thead>
+                                    <thead class='bg-success text-white'>
                                         <tr>
                                             <th>Judul</th>                                           
                                             <th>Penerbit</th>

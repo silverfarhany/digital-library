@@ -11,8 +11,8 @@
                                 Data E-book yang pernah anda pinjam
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
+                                <table id="datatablesSimple" >
+                                    <thead class='bg-success text-white'>
                                         <tr>
                                             <th>Judul</th>
                                             <th>Kategori</th>

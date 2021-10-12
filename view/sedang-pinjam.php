@@ -11,8 +11,8 @@
                                 Data E-book yang sedang anda pinjam
                             </div>
                             <div class="card-body bg-light">
-                                <table id="datatablesSimple" class="bg-white">
-                                    <thead class ="bg-light">                                      
+                                <table id="datatablesSimple">
+                                    <thead class ="bg-light" class='bg-success'>                                      
                                             <th>Judul E-book </th>
                                             <th>Kategori E-book</th> 
                                             <th>Mulai Pinjam</th>  

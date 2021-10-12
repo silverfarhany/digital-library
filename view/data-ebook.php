@@ -10,7 +10,7 @@
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
-                                    <thead>
+                                    <thead class='bg-success text-white'>
                                         <tr>
                                             <th>Judul</th>                                           
                                             <th>Penerbit</th>

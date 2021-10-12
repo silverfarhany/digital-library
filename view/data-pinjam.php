@@ -11,7 +11,7 @@
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
-                                    <thead>
+                                    <thead class='bg-success'>
                                         <tr>
                                             <th>Nama User</th>                                           
                                             <th>NIS / NIP</th>                                           

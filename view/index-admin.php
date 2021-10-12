@@ -7,16 +7,16 @@
                         <br> </br>
                         <br> </br>
                         <div class="row">
-                            <div class="col-xl-3 col-md-8">
+                            <div class="col-xl-6 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Upload E-book</div>
+                                    <div class="card-body">Data User</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="upload-ebook.php">View Details</a>
+                                        <a class="small text-white stretched-link" href="data-user.php">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
+                            <div class="col-xl-6 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Data Ebook</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
@@ -25,8 +25,8 @@
                                     </div>
                                 </div>
                             </div>  
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
+                            <div class="col-xl-6 col-md-6">
+                                <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Data Peminjaman</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="data-pinjam.php">View Details</a>
@@ -34,7 +34,24 @@
                                     </div>
                                 </div>
                             </div>                                                    
-                        </div>
+                        <div class="col-xl-6 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body">Upload Ebook</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="upload-ebook.php">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">Tambah Admin</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="tambah-admin.php">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
