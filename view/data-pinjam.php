@@ -33,8 +33,7 @@
                                         </tr>
                                         <?php endwhile;?>                                       
                                     </tbody>
-                                </table>
-                                <a href="cetak_peminjaman.php" class="btn btn-success" style="float:right"> <i class="fa fa-print"></i> </a>
+                                </table>                    
                             </div>
                         </div>
                     </div>

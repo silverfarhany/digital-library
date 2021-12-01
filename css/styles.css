@@ -156,6 +156,11 @@ p {
   margin-bottom: 1rem;
 }
 
+ /* Add the blur effect */
+ filter:blur(8px)
+ webkit-filter:blur(8px)
+
+
 abbr[title],
 abbr[data-bs-original-title] {
   -webkit-text-decoration: underline dotted;

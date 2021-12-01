@@ -16,20 +16,25 @@ require_once('konekdb.php');
                                 alert('username sudah terdaftar!')
                                 </script>";
                         return FALSE;
+                }elseif (strlen($pass)<8){                            
+                            echo "<script>                                                                        
+                                    alert('Password tidak boleh kurang 8 karakter !') </script>";                                   
+
                 }elseif ($pass != $konfirm){
                     echo "<script>
                         alert('password tidak sama!')
                         </script>";
                         return FALSE;
-                }
+                }else{
             $pass = password_hash($pass, PASSWORD_DEFAULT);
                 $quer = "INSERT INTO data_user VALUES (null,'$name','$user','$pass','$email','$ni',2)";                
                 mysqli_query($conn, $quer);
                 if (mysqli_affected_rows($conn)){
                     header("location: login.php");
                 }
-                
             }
+        }  
+        
     } else {
         echo "<script>
         alert('Logout dulu yaaa')

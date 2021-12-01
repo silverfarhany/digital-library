@@ -32,13 +32,12 @@
                                             <a class="btn btn-warning" name="ubah" href ="ubah-ebook.php?id=<?php echo $ebook['id_ebook']?>"><i class="fa fa-edit"></i></button>
                                             </td>
                                             <td> 
-                                            <a class="btn btn-danger" name="hapus" href ="hapus_ebook.php?id=<?php echo $ebook['id_ebook']?>"><i class="fa fa-trash"></i></button>
+                                            <a class="btn btn-danger" name="hapus" href ="hapus_ebook.php?id=<?php echo $ebook['id_ebook']?>&judul=<?= $ebook["file"]?>"><i class="fa fa-trash" onclick="return confirm('Yakin Hapus E-Book?')"></i></button>
                                             </td>
                                         </tr>
                                         <?php endwhile;?>                                       
                                     </tbody>                                    
-                                </table>    
-                                <a href="cetak_dataBuku.php" class="btn btn-success" style="float:right"> <i class="fa fa-print"></i> </a>                            
+                                </table>                                
                             </div>
                         </div>
                     </div>

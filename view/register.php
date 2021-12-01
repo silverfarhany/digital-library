@@ -46,19 +46,19 @@ require_once('register.php');
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" name="password" type="password" required="" placeholder="Create a password" />
+                                                        <input class="form-control" name="password" type="password" required="" minlength="8" placeholder="Create a password" />
                                                         <label for="password">Password</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" name="confirm" type="password" required="" placeholder="Confirm password" />
+                                                        <input class="form-control" name="confirm" type="password" required="" minlength="8" placeholder="Confirm password" />
                                                         <label for="confirm">Confirm Password</label>
                                                     </div>
                                                 </div>
                                             </div>  
                                                 <div class="form-floating mb-3">
-                                                    <input class="form-control" name="Nis_Nip" type="text" required="" placeholder="Enter your NIS / NIP" />
+                                                    <input class="form-control" name="Nis_Nip" type="text" required="" minlength="6" placeholder="Enter your NIS / NIP" />
                                                     <label for="Nis_Nip"> NIS / NIP</label>
                                                 </div>                                                
                                             <div class="mt-4 mb-0">

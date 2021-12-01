@@ -15,7 +15,7 @@
                                             <th>Penerbit</th>
                                             <th>Lisensi</th>                                               
                                             <th>Kategori</th> 
-                                            <th>Pinjam</th>                                                                                    
+                                            <th>Pinjam</th>                                                                                   
                                         </tr>
                                     </thead>                                   
                                     <tbody>
@@ -25,12 +25,41 @@
                                             <td> <?= $ebook["penerbit"]==""?"-":$ebook["penerbit"]  ?> </td>
                                             <td> <?= $ebook["lisensi"]==""?"-":$ebook["lisensi"]  ?> </td>                                          
                                             <td> <?= $ebook["kategori_buku"]==1?"Buku Paket":($ebook["kategori_buku"]==2?"Buku Fiksi":"Karya Ilmiah")  ?> </td>                                                                               
-                                            <td> <form method="post">
-                                                <input type="hidden" name="id_ebook" value="<?= $ebook["id_ebook"] ?>">
-                                                 <button class="btn btn-primary btn-block" type="submit" name="pinjam">Pinjam</button> 
-                                            </form> </td>
+                                            <td>
+                                                <form method="post">
+                                                    <?php 
+                                                        $id_verif = $_SESSION["id"];
+                                                        $ebook_verif = $ebook["id_ebook"];
+                                                        // $masih_pinjam = ($ebook['end_pinjam']>NOW());
+                                                        $hasil_verif = $conn->query("SELECT * FROM data_pinjaman WHERE id_user = '$id_verif' AND id_ebook = '$ebook_verif' ");
+                                                        if(mysqli_num_rows($hasil_verif) > 0){
+                                                            while($verif = $hasil_verif->fetch_assoc()):
+                                                                // echo $verif['end_pinjam'];
+                                                                $tanggal_pinjam = date_create($verif['end_pinjam']);
+                                                                $tanggal_test = date("Y-m-d");
+                                                                $tangga_sekarang = date_create($tanggal_test);
+                                                                // var_dump($tanggal_pinjam);
+                                                                // var_dump($tangga_sekarang);
+                                                                $selisih = date_diff($tangga_sekarang, $tanggal_pinjam);
+                                                                $selisih_string = $selisih ->format('%a');
+                                                                // var_dump ((int)$selisih_string);
+                                                            if($tanggal_pinjam > $tangga_sekarang){     
+
+                                                                echo ("Sedang Dipinjam");
+                                                            }
+                                                    else{
+                                                    ?>
+                                                    <input type="hidden" name="id_ebook" value="<?= $ebook["id_ebook"] ?>">                                                                                   
+                                                    <button class="btn btn-primary btn-block" type="submit" name="pinjam"> Pinjam</button>
+                                                    <?php }endwhile;}else{
+                                                        ?>
+                                                    <input type="hidden" name="id_ebook" value="<?= $ebook["id_ebook"] ?>">                                                                                   
+                                                    <button class="btn btn-primary btn-block" type="submit" name="pinjam"> Pinjam</button>
+                                                    <?php }?>
+                                                </form>
+                                            </td>
                                         </tr>
-                                        <?php endwhile;?>                                       
+                                        <?php endwhile;?>                                   
                                     </tbody>
                                 </table>
                             </main>    

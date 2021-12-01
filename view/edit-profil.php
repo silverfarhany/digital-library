@@ -33,35 +33,13 @@
                     </ul>
                 </li>
             </ul>
-        </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                        <a class="nav-link" href="index-admin.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
-                                Home
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Administrasi</div>
-                            <a class="nav-link" href="data-ebook.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Data E-book
-                            </a>  
-                            <a class="nav-link" href="data-pinjam.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-server"></i></div>
-                                Data Peminjaman
-                            </a>                                                                                             
-                            <a class="nav-link collapsed" href="upload-ebook.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-upload"></i></div>
-                                Upload E-book                                
-                            </a>                                                      
-                            <a class="nav-link" href="logout.php"> 
-                                <div class="sb-nav-link-icon"><i class="fas fa-unlock"></i></div>                              
-                                Logout 
-                            </a>
-                        </div>
-                    </div>
+        </nav>   
+        <?php if(isset($_SESSION['id'])&& $_SESSION['klasif']==3){ 
+         require_once('header-admin.php');}
+         else {
+            require_once('header.php');
+         }
+         ?>  
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
                         <?php echo $_SESSION['username'] ?>

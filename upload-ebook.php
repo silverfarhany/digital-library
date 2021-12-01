@@ -10,12 +10,19 @@ if(isset($_SESSION['id'])&& ($_SESSION['klasif']==3 || $_SESSION['klasif']==1)){
             $tags = $_POST ["tags"];
             $kategori = $_POST["tipebuku"];
             $directory = "ebook";
-            $file = $_FILES["uploadedfile"]["name"];
+            $namafile = $_FILES["uploadedfile"]["name"];
             $tmp = $_FILES["uploadedfile"]["tmp_name"];    
-            $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+            $ext = strtolower(pathinfo($namafile, PATHINFO_EXTENSION));
+            $cek = mysqli_query($conn, "SELECT file FROM data_ebook WHERE file ='$namafile'");
+            //$namafilebaru = "MA".date("Ymdhis").".".$ext;
             if($ext == 'pdf'){
-                if(move_uploaded_file($tmp, "$directory/$file")){
-                    $query = "INSERT INTO data_ebook values (null,'$judul','$penerbit','$lisensi','$tags','$file','$kategori')";
+                if(move_uploaded_file($tmp, "$directory/$namafile")){                    
+                    if(mysqli_fetch_assoc($cek)== TRUE){
+                        echo "<script>
+                                    alert('E-book sudah ada')
+                                    </script>";
+                            return FALSE;}
+                    $query = "INSERT INTO data_ebook values (null,'$judul','$penerbit','$lisensi','$tags','$namafile','$kategori')";
                     $result = $conn->query($query);
                         if($result){
                             echo 
@@ -23,7 +30,6 @@ if(isset($_SESSION['id'])&& ($_SESSION['klasif']==3 || $_SESSION['klasif']==1)){
                             alert('Ebook berhasil diupload!')
                             window.location.replace('upload-ebook.php');
                             </script>";
- 
                         }
                 } else{
                    echo "<script>alert('There was an error uploading the file, please try again!')</script>";
@@ -33,12 +39,12 @@ if(isset($_SESSION['id'])&& ($_SESSION['klasif']==3 || $_SESSION['klasif']==1)){
             }
         }
         
-        $cek = mysqli_query($conn, "SELECT file FROM data_ebook WHERE file ='$file'");
-        if(mysqli_fetch_assoc($cek)== TRUE){
-            echo "<script>
-                        alert('E-book sudah ada')
-                        </script>";
-                return FALSE;}
+        // $cek = mysqli_query($conn, "SELECT file FROM data_ebook WHERE file ='$namafilebaru'");
+        // if(mysqli_fetch_assoc($cek)== TRUE){
+        //     echo "<script>
+        //                 alert('E-book sudah ada')
+        //                 </script>";
+        //         return FALSE;}
 
 require_once('view/upload-ebook.php');}
 else{

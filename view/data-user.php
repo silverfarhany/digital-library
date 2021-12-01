@@ -30,8 +30,8 @@
                                             <td> <?= $user["email"]  ?> </td> 
                                             <td> <?= $user["nis_nip"]  ?> </td> 
                                             <td> <?= $user["who"]==1?"Admin":($user["who"]==2?"User":"Super Admin") ?></td>                                                                
-                                            <td> 
-                                            <a class="btn btn-danger" name="block" href ="block-user.php?id=<?php echo $user['id_user']?>"><i class="fa fa-times-circle"></i></button>
+                                            <td>                                             
+                                            <a class="btn btn-danger" name="block" href ="block-user.php?id=<?php echo $user['id_user']?>"><i class="fa fa-trash" onclick="return confirm('Yakin Block User?')"></i></button>                                                                                      
                                             </td>
                                         </tr>
                                         <?php endwhile;?>                                       

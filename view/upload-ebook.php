@@ -21,7 +21,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" name="judul" type="text" required="" placeholder="Judul E-book" />
+                                                <input class="form-control" name="judul" type="text" placeholder="Judul E-book" />
                                                 <label for="email">Judul E-book</label>
                                             </div>
                                             <div class="row mb-3">                                            
