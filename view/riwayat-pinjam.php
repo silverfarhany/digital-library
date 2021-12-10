@@ -18,44 +18,16 @@
                                     <th>Kategori</th>
                                     <th>Mulai Pinjam</th>
                                     <th>Selesai Pinjam</th>
-                                    <th>Aksi</th>
+                                    <!-- <th>Aksi</th> -->
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>                                    
-                                    <?php while ($ebook = $result->fetch_assoc()) : ?>                                        
+                                <tr>
+                                    <?php while ($ebook = $result->fetch_assoc()) : ?>
                                         <td> <?= $ebook["judul"]  ?> </td>
                                         <td> <?= $ebook["kategori_buku"] == 1 ? "Buku Paket" : ($ebook["kategori_buku"] == 2 ? "Buku Fiksi" : "Karya Ilmiah")  ?> </td>
                                         <td> <?= $ebook["start_pinjam"]  ?> </td>
                                         <td> <?= $ebook["end_pinjam"]  ?> </td>
-                                        <td>
-                                            <form method="post">
-                                                <?php
-                                                $id_verif = $_SESSION["id"];
-                                                $ebook_verif = $ebook["id_ebook"];                                                
-                                                $hasil_verif = $conn->query("SELECT * FROM data_pinjaman WHERE id_user = '$id_verif' AND id_ebook = '$ebook_verif' ");
-                                                                                      
-                                                if (mysqli_num_rows($hasil_verif) > 0) {
-                                                        $verif = $hasil_verif->fetch_assoc();                                                         
-                                                        $tanggal_pinjam = date_create($verif['end_pinjam']);
-                                                        $tanggal_test = date("Y-m-d");
-                                                        $tangga_sekarang = date_create($tanggal_test);                                                     
-                                                        // $selisih = date_diff($tangga_sekarang, $tanggal_pinjam);
-                                                        // $selisih_string = $selisih->format('%a');                                                        
-                                                        if ($tanggal_pinjam > $tangga_sekarang) {
-                                                            echo ("Sedang Dipinjam");
-                                                        }else{
-                                                    ?>
-                                                            <input type="hidden" name="id_ebook" value="<?= $ebook["id_ebook"] ?>">
-                                                            <button class="btn btn-primary btn-block" type="submit" name="pinjamlagi"> Pinjam Lagi</button>
-                                                    <?php };
-                                                    }else{
-                                                        ?>
-                                                        <input type="hidden" name="id_ebook" value="<?= $ebook["id_ebook"] ?>">
-                                                        <button class="btn btn-primary btn-block" type="submit" name="pinjamlagi"> Pinjam Lagi</button>
-                                                    <?php } ?>
-                                            </form>                                   
-                                        </td>
                                 </tr>
                             <?php endwhile; ?>
                             </tbody>

@@ -3,12 +3,18 @@ session_start();
 $title = "Upload E-book";
 if(isset($_SESSION['id'])&& ($_SESSION['klasif']==3 || $_SESSION['klasif']==1)){    
     require_once('konekdb.php');
+    $kategori_buku = $_POST['kategori'];
+    $result = mysqli_query($conn, "SELECT * from detail_kategori,kategori_ebook inner join kategori_ebook on kategori_ebook.id_ebook = detail_kategori.id_kategori
+    where id_kategori = '$kategori_buku'");  
+
         if (isset($_POST["upload"])){
             $lisensi = $_POST["lisensi"];
             $penerbit =$_POST["penerbit"];
             $judul = $_POST["judul"];
             $tags = $_POST ["tags"];
-            $kategori = $_POST["tipebuku"];
+            $sinopsis = $_POST["sinopsis"];
+            $kategori = $_POST["kategori"];
+            $detail = $_POST["detail"];
             $directory = "ebook";
             $namafile = $_FILES["uploadedfile"]["name"];
             $tmp = $_FILES["uploadedfile"]["tmp_name"];    
@@ -22,7 +28,7 @@ if(isset($_SESSION['id'])&& ($_SESSION['klasif']==3 || $_SESSION['klasif']==1)){
                                     alert('E-book sudah ada')
                                     </script>";
                             return FALSE;}
-                    $query = "INSERT INTO data_ebook values (null,'$judul','$penerbit','$lisensi','$tags','$namafile','$kategori')";
+                    $query = "INSERT INTO data_ebook values (null,'$judul','$penerbit','$lisensi','$tags','$namafile','$sinopsis','$kategori','$detail')";
                     $result = $conn->query($query);
                         if($result){
                             echo 

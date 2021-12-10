@@ -4,7 +4,8 @@ $title = "Edit E-book";
 if(isset($_SESSION['id'])&& ($_SESSION['klasif']==3 || $_SESSION['klasif']==1)){
     require_once('konekdb.php');
         $id_ebook = $_GET['id'];
-        $detailebook = "SELECT * FROM data_ebook WHERE id_ebook ='$id_ebook'";
+        $detailebook = "SELECT * FROM data_ebook, kategori_ebook, detail_kategori 
+        where kategori_ebook.id_kategori = data_ebook.id_kategori and detail_kategori.id_detail = data_ebook.id_detail";
             $ubah =$conn->query($detailebook)->fetch_assoc();
         
             if (isset($_POST["edit"])){
