@@ -36,8 +36,8 @@
                     <div class="form-floating mb-3">
                         <input class="form-control" name="uploadedfile" type="file" accept=".pdf" required="" />
                     </div>
-                    <div>
-                        <br>
+                    <div> 
+                        <br>                      
                         <div class="form-group inline">
                             <label for="kategori" class="col-forms-label">Kategori</label>
                             <div class="col-sm-5">
@@ -51,15 +51,18 @@
                             </div>
                             <label for="kategori Detail" class="col-forms-label">Detail Kategori</label>
                             <div class="col-sm-5">
-                                <select id="detail" name="detail" class="form-control" placeholder="Detail Kategori">
-                                    <?php $query_detail = mysqli_query($conn, "SELECT * FROM detail_kategori");
-                                    while ($detail = mysqli_fetch_assoc($query_detail)) {
+                                <select id="detail" name="detail" class="form-control" placeholder="Detail Kategori" disabled>
+                                    <?php 
+                                    // $query_detail = mysqli_query($conn, "SELECT * FROM detail_kategori");
+                                    // while ($detail = mysqli_fetch_assoc($query_detail)) {
                                     ?>
-                                        <option value="<?= $detail['id_detail'] ?>"><?= $detail['nama_detail'] ?></option>
-                                    <?php } ?>
+                                        <!-- <option value="<?= $detail['id_detail'] ?>"><?= $detail['nama_detail'] ?></option> -->
+                                        <?php 
+                                        // } 
+                                        ?>
                                 </select>
                             </div>
-                        </div>
+                        </div>                        
                         <div class="mt-4 mb-0">
                             <div class="d-mb-4"><button class="btn btn-primary btn-block" type="submit" name="upload">Upload E-book</button></div>
                         </div>
@@ -79,6 +82,7 @@
             </footer>
         </div>
     </div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
@@ -86,6 +90,28 @@
     <script src="assets/demo/chart-bar-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
-    </body>
+    
+<script>
+    
+    const kategori = document.querySelector('#kategori');
+    const detKategori = document.querySelector('#detail');
+    
+    kategori.addEventListener('change',function(){
+        if(kategori.value != 7){
+            fetch('set_kategori.php?kategori=' + kategori.value)
+        .then(console.log('set_kategori.php?kategori='+kategori.value))
+          .then(detKategori.options.length = 0)
+          .then(detKategori.appendChild(new Option("", "")))
+          .then(detKategori.disabled = false)
+          .then(response => response.json())
+          .then(data => data.id_detail.forEach(function(k, index) {
+            detKategori.appendChild(new Option(data.nama_detail[index], k));
+          }))
+        }
+       
+    });                                     
+</script>
+
+</body>
 
     </html>

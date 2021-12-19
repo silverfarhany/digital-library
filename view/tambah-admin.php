@@ -45,7 +45,7 @@
                             <label for="Nis_Nip"> NIP</label>
                         </div>
                         <div class="mt-4 mb-0">
-                            <div class="d-grid"><button class="btn btn-primary btn-block" type="submit" name="tambah">Add Admin</button></div>
+                            <div class="d-mt-4"><button class="btn btn-primary btn-block" type="submit" name="tambah">Add Admin</button></div>
                         </div>
                     </form>
                 </div>

@@ -15,6 +15,9 @@
                                             <th>Penerbit</th>
                                             <th>Lisensi</th>                                               
                                             <th>Kategori</th> 
+                                            <th>Detail Kategori</th>
+                                            <th> Sinopsis</th>
+                                            <th>Tags</th>
                                             <th>Pinjam</th>                                                                                   
                                         </tr>
                                     </thead>                                   
@@ -24,7 +27,10 @@
                                             <td> <?= $ebook["judul"] ?></td>
                                             <td> <?= $ebook["penerbit"]==""?"-":$ebook["penerbit"]  ?> </td>
                                             <td> <?= $ebook["lisensi"]==""?"-":$ebook["lisensi"]  ?> </td>                                          
-                                            <td> <?= $ebook["kategori_buku"]==1?"Buku Paket":($ebook["kategori_buku"]==2?"Buku Fiksi":"Karya Ilmiah")  ?> </td>                                                                               
+                                            <td> <?= $ebook["nama_kategori"]  ?> </td>
+                                            <td> <?= $ebook["nama_detail"] ?></td>
+                                            <td> <?= $ebook["sinopsis"] ?></td>
+                                            <td> <?= $ebook["tags"] ?></td>                                                                                                                          
                                             <td>
                                                 <form method="post">
                                                     <?php 
@@ -36,9 +42,7 @@
                                                                 $tanggal_pinjam = date_create($verif['end_pinjam']);
                                                                 $tanggal_test = date("Y-m-d");
                                                                 $tangga_sekarang = date_create($tanggal_test);                                                                
-                                                                // $selisih = date_diff($tangga_sekarang, $tanggal_pinjam);
-                                                                // $selisih_string = $selisih ->format('%a');
-                                                            
+                                                               
                                                             if($tanggal_pinjam > $tangga_sekarang){     
 
                                                                 echo ("Sedang Dipinjam");

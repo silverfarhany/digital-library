@@ -12,7 +12,7 @@ if(!isset($_GET['id'])){
             $file=$conn->query($ebook)->fetch_assoc();
             require_once('view/tampil-ebook.php');
         }else{
-            die('404 not found');
+            echo "<script>alert('Anda belum Login')</script>";;
         }
 }
 

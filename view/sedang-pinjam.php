@@ -24,7 +24,7 @@
                                 <tr>
                                     <?php while ($ebook = $result->fetch_assoc()) : ?>
                                         <td> <?= $ebook["judul"]  ?> </td>
-                                        <td> <?= $ebook["kategori_buku"] == 1 ? "Buku Paket" : ($ebook["kategori_buku"] == 2 ? "Buku non-Paket" : "Karya Ilmiah") ?> </td>
+                                        <td> <?= $ebook["nama_kategori"] ?> </td>
                                         <td> <?= $ebook["start_pinjam"]  ?> </td>
                                         <td> <?= date('Y-m-d', strtotime($ebook['end_pinjam'] . '- 1 days'));  ?> </td>
                                         <td><a target="_blank" href="tampil-ebook.php?id=<?= $ebook["id_pinjam"] ?>"><?= $ebook["file"] ?></a></td>

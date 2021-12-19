@@ -25,7 +25,7 @@
                                 <tr>
                                     <?php while ($ebook = $result->fetch_assoc()) : ?>
                                         <td> <?= $ebook["judul"]  ?> </td>
-                                        <td> <?= $ebook["kategori_buku"] == 1 ? "Buku Paket" : ($ebook["kategori_buku"] == 2 ? "Buku Fiksi" : "Karya Ilmiah")  ?> </td>
+                                        <td> <?= $ebook["nama_kategori"]  ?> </td>
                                         <td> <?= $ebook["start_pinjam"]  ?> </td>
                                         <td> <?= $ebook["end_pinjam"]  ?> </td>
                                 </tr>

@@ -8,8 +8,33 @@ $dt_ebook = "SELECT count(id_ebook) as jumlah_ebook from data_ebook"; //query me
 $hasil_ebook = $conn->query($dt_ebook)->fetch_assoc();
 $dt_pinjaman = "SELECT count(id_pinjam) as jumlah_pinjaman from data_pinjaman"; //query menghitung jumlah data pinjaman
 $hasil_pinjaman = $conn->query($dt_pinjaman)->fetch_assoc();
-
 ?>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #container {
+        height: 100%;
+        width: 100%;
+        font-size: 0;
+    }
+
+    #left,
+    #middle,
+    #right {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        vertical-align: top;
+    }
+
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
@@ -17,16 +42,7 @@ $hasil_pinjaman = $conn->query($dt_pinjaman)->fetch_assoc();
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">Hi, <?php echo $_SESSION['username'] ?></li>
             </ol>
-            <!-- <center>
-                        <img src="assets/img/o.png" style="" class="card border-0 rounded-lg mt-5" alt="Logo SMA Mekar Arum" >
-                        <h2 {text-align: center;}> Sejarah SMA Mekar Arum </h2> 
-                        <h5>Nama Sekolah : SMA Mekar Arum</h5>
-                        <h5>Alamat Sekolah : Jl. Raya Cinunuk No. 82, Bandung</h5>
-                        <h5>Berdiri tahun : 27 Juni 1985</h5>
-                        <h5> SMA Mekar Arum adalah sekolah tingkat menengah atas di wilayah Bandung Timur beralamat di Jl. Raya Cinunuk No. 82, Bandung yang didirikan pada tahun 1991 dan berada dibawah naungan Yayasan Pendidikan dan Kebudayaan Mekar Arum (YPK Mekar Arum). 
-YPK Mekar Arum sendiri, berdiri sejak 27 Juni 1985 yang dahulu memiliki nama Yayasan Pendidikan Mekar Arum (YAPENMA). Lalu, pada tahun 2006 YAPENAMA merubah kembali nama nya menjadu Yayasan Pendidikan dan Kebudayaan Mekar Arum (YPK Mekar Arum). Pergantian nama tersebut tercatat dalam akta No. 9 tanggal 16 Juni 2006 dan pengesahan dari Dephumkam Republik Indonesia Direktorat Jendral Administrasi Hukum Umum No. C-2847.HT.01-02 Tahun 2006. Pergantian nama ini, menjadi wujud realisasi dari Yayasan untuk bebenah diri dan menjawab tuntutan masyarakat, DU/DI yaitu menyediakan wahana lain untuk lebih meningkatkan kreativitas dan mengembangkan talenta yang dimiliki generasi muda dan pengembangan sarana Pendidikan yang Aman, Respentatif, Kondusif, dan berbudaya lingkungan.</h5>
-                        </center> -->
-            <div class="col-xl-5 col-md-6">
+            <div class="col-xl-5 col-md-6" id="left">
                 <div class="card bg-primary text-white mb-4">
                     <div class="card-body">
                         <h3><?php echo $hasil_user['jumlah_user'] . " Data User" ?></h3>
@@ -37,7 +53,7 @@ YPK Mekar Arum sendiri, berdiri sejak 27 Juni 1985 yang dahulu memiliki nama Yay
                     </div>
                 </div>
             </div>
-            <div class="col-xl-5 col-md-6">
+            <div class="col-xl-5 col-md-6" id="middle">
                 <div class="card bg-success text-white mb-4">
                     <div class="card-body">
                         <h3><?php echo $hasil_ebook['jumlah_ebook'] . " Data Ebook" ?></h3>
@@ -48,7 +64,7 @@ YPK Mekar Arum sendiri, berdiri sejak 27 Juni 1985 yang dahulu memiliki nama Yay
                     </div>
                 </div>
             </div>
-            <div class="col-xl-5 col-md-6">
+            <div class="col-xl-5 col-md-6" id="middle">
                 <div class="card bg-warning text-white mb-4">
                     <div class="card-body">
                         <h3><?php echo $hasil_pinjaman['jumlah_pinjaman'] . " Data Pinjaman" ?></h3>
@@ -60,6 +76,24 @@ YPK Mekar Arum sendiri, berdiri sejak 27 Juni 1985 yang dahulu memiliki nama Yay
                 </div>
             </div>
         </div>
+        <table id="datatablesSimple">
+            <thead class='center; bg-success text-white md-3'>
+                <br></br>
+                <h4 style="text-align:center"> Ebook Paling Banyak Dipinjam</h4>
+                <tr style="height:20px">
+                    <th>Judul</th>
+                    <th>Penerbit</th>                                                       
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <?php while ($ebook = $result->fetch_assoc()) : ?>
+                        <td> <?= $ebook["judul"]== "" ? "-" : $ebook["judul"] ?></td>
+                        <td> <?= $ebook["penerbit"] == "" ? "-" : $ebook["penerbit"]  ?> </td>                                                 
+                </tr>
+            <?php endwhile; ?>
+            </tbody>
+        </table>
 </div>
 </div>
 </main>

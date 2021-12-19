@@ -3,7 +3,7 @@
 <?php require_once('header-admin.php') ?>
 <div class="container">
     <div id="layoutSidenav_content">
-        <div class="row justify-content-center">           
+        <div class="row justify-content-center">
             <div class="row justify-content-center">
                 <div class="col-md-5">
                     <h3 class="text-center font-weight-light my-4">Edit data E-book</h3>
@@ -87,6 +87,6 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
-</body>
+        </body>
 
 </html>

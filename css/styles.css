@@ -60,7 +60,7 @@
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
-  --bs-body-bg: #fff;
+  --bs-body-bg: rgb(247, 247, 247);
 }
 
 *,
@@ -75,7 +75,8 @@
   }
 }
 
-body {
+body, html {
+  height: 100%;
   margin: 0;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
@@ -156,10 +157,23 @@ p {
   margin-bottom: 1rem;
 }
 
- /* Add the blur effect */
- filter:blur(8px)
- webkit-filter:blur(8px)
+.bg-image {
 
+    /* The image used */
+    background-image: url("assets/img/o.png");
+
+    /* Add the blur effect */
+    filter:blur(8px);
+    -webkit-filter:blur(8px);
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+}
 
 abbr[title],
 abbr[data-bs-original-title] {

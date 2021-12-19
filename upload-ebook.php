@@ -3,9 +3,8 @@ session_start();
 $title = "Upload E-book";
 if(isset($_SESSION['id'])&& ($_SESSION['klasif']==3 || $_SESSION['klasif']==1)){    
     require_once('konekdb.php');
-    $kategori_buku = $_POST['kategori'];
-    $result = mysqli_query($conn, "SELECT * from detail_kategori,kategori_ebook inner join kategori_ebook on kategori_ebook.id_ebook = detail_kategori.id_kategori
-    where id_kategori = '$kategori_buku'");  
+    // $kategori_buku = $_POST['kategori'];
+    $result = mysqli_query($conn, "SELECT * from detail_kategori,kategori_ebook inner join kategori_ebook on kategori_ebook.id_ebook = detail_kategori.id_kategori");  
 
         if (isset($_POST["upload"])){
             $lisensi = $_POST["lisensi"];

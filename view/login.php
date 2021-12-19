@@ -11,9 +11,20 @@
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <link rel="icon" href="assets/img/o.png" type="image/ico" />
+    <style>
+        .background{
+            position : fixed;
+            min-width: 100%;
+            min-height: 100%;
+            filter: blur(5px);
+        }
+    </style>
 </head>
-
-<body style="background-image: url(assets/img/o.png);">
+<!-- <body style="background-image: url(assets/img/0.jpg); background-repeat:no-repeat;  max-width: 100%;
+  height: auto;"> -->
+  <body>
+    
+  <img src="assets/img/0.jpg" alt="" class="background">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
@@ -38,7 +49,7 @@
                                             <label for="password">Password</label>
                                         </div>
                                         <div class="center d mb-3">
-                                            <button class="btn btn-success " type="submit" name="login">Login</button>
+                                            <button class="btn btn-primary" type="submit" name="login">Login</button>
                                         </div>
                                     </form>
                                 </div>

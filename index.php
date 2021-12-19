@@ -3,7 +3,8 @@ session_start();
 $title = "Home";
 if (isset($_SESSION['id']) && $_SESSION['klasif'] == 2) {
     require_once('konekdb.php');
-    $ebook  = "SELECT * FROM `data_ebook`";
+    $ebook  ="SELECT * FROM data_ebook, kategori_ebook, detail_kategori 
+    where kategori_ebook.id_kategori = data_ebook.id_kategori and detail_kategori.id_detail = data_ebook.id_detail";
 
     $result = $conn->query($ebook);
     if (isset($_POST['pinjam'])) {

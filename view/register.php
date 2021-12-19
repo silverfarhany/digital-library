@@ -62,7 +62,7 @@ require_once('register.php');
                                             </div>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" name="Nis_Nip" type="text" required="" minlength="6" placeholder="Enter your NIS / NIP" />
+                                            <input class="form-control" name="Nis_Nip" type="text" minlength="6" placeholder="Enter your NIS / NIP" />
                                             <label for="Nis_Nip"> Nomor Induk </label>
                                         </div>
                                         <div class="mt-4 mb-0">
